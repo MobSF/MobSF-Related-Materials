@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GetSecret</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="settings">Nothing Here!</string>
+    <string name="asksec">Getting Hot!</string>
+    <string name="title_activity_ask_secret">AskSecret</string>
+    <string name="title_activity_get_flag">GetFlag</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

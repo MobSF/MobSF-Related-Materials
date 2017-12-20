@@ -1,0 +1,45 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        flatDir { dirs '/Users/aabraham/DexGuard6.1.07/lib' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.0'
+        classpath ':dexguard:'
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'dexguard'
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "opensecurity.sendsecret"
+        minSdkVersion 17
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        debug {
+            proguardFile getDefaultDexGuardFile('dexguard-debug.pro')
+            proguardFile 'dexguard-project.txt'
+            proguardFile 'proguard-project.txt'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFile getDefaultDexGuardFile('dexguard-release.pro')
+            proguardFile 'dexguard-project.txt'
+            proguardFile 'proguard-project.txt'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile files('libs/dexguard_util.jar')
+}
